@@ -1,6 +1,7 @@
 package com.vtiger.comcast.genericutility;
 import java.io.File;
 
+
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
@@ -12,7 +13,7 @@ import org.testng.ITestResult;
 
 /****author soumya**/
 
-public class ListnerImp implements ITestListener {
+public  class ListnerImp implements ITestListener {
 	public void onTestfailure(ITestResult result)throws IOException
 	{
 		String TestName = result.getMethod().getMethodName();
@@ -67,5 +68,4 @@ public class ListnerImp implements ITestListener {
 		// TODO Auto-generated method stub
 		
 	}
-		
 }

@@ -5,19 +5,21 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.vtiger.comcast.genericutility.BaseClass;
 import com.vtiger.comcast.pomrepository.CreateNewOpportunities;
 import com.vtiger.comcast.pomrepository.Home;
 import com.vtiger.comcast.pomrepository.Login;
 import com.vtiger.comcast.pomrepository.OpportunitiesInfo;
 import com.vtiger.comcast.pomrepository.Opportunities;
-
-public class CreateOpportunities {
+@Listeners(com.vtiger.comcast.genericutility.ListnerImp.class)
+public class CreateOpportunitiesTest extends BaseClass{
 @Test
-	public static void main(String[] args) throws InterruptedException {
+	public void CreateOpportunities (){
 	
-		WebDriver driver = new ChromeDriver();
+//		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("http://localhost:8888/");
@@ -37,7 +39,7 @@ public class CreateOpportunities {
 		String parentId = driver.getWindowHandle();
 		cno.createOpp("abc");
 		cno.getRelatePlusImg().click();
-		Thread.sleep(5000);
+		
 		
 		Set<String> allid = driver.getWindowHandles();
 		for(String wid:allid) {
@@ -52,7 +54,7 @@ public class CreateOpportunities {
 		cno.searchText("HPLAPTOP");
 		cno.getclicksearchBtn().click();
 		cno.getSelectName().click();
-		Thread.sleep(3000);
+
 		driver.switchTo().window(parentId);
 		cno.getSaveBtn().click();
 		
